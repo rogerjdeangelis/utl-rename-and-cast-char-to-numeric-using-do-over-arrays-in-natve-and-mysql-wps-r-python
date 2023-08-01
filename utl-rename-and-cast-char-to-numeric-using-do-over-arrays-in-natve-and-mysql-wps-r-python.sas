@@ -1,6 +1,6 @@
 %let pgm=utl-rename-and-cast-char-to-numeric-using-do-over-arrays-in-natve-and-mysql-wps-r-python;
 
-Rename and cast char to numeric using do over arrays in natve and mysql wps r python
+Rename and cast char to numeric using do over arrays in native and mysql wps r python
 
 https://github.com/rogerjdeangelis/utl-rename-and-cast-char-to-numeric-using-do-over-arrays-in-natve-and-mysql-wps-r-python
 
@@ -66,7 +66,7 @@ run;quit;
 /*---- create table have in mysql sakila database                        ----*/
 %utl_submit_wps64x("
 
-libname mysqllib mysql user='root' password='sas28rlx' database='sakila' port=3306;
+libname mysqllib mysql user='root' password='xxxxxxxx' database='sakila' port=3306;
 
 libname sd1 'd:/sd1';
 
@@ -198,7 +198,7 @@ run;quit;
 
 %utl_submit_wps64x("
 
-libname mysqllib mysql user='root' password='sas28rlx' database='sakila' port=3306;
+libname mysqllib mysql user='root' password='xxxxxxxx' database='sakila' port=3306;
 
 /*---- in case you rerun                                                    ----*/
 proc datasets lib=mysqllib nolist nodetails;
@@ -224,7 +224,7 @@ run;quit;
 /*---- lets check example                                                   ----*/
 
 proc sql;
-   connect to mysql (user='root' password='sas28rlx' database='sakila' port=3306);
+   connect to mysql (user='root' password='xxxxxxxx' database='sakila' port=3306);
  create
    table havMta as
  select column_name, column_type
@@ -399,7 +399,7 @@ proc python;
 submit;
 import pandas as pd;
 import mysql.connector;
-dataBase = mysql.connector.connect(host = "localhost",user = "root",passwd = "sas28rlx",database = "sakila" );
+dataBase = mysql.connector.connect(host = "localhost",user = "root",passwd = "xxxxxxxx",database = "sakila" );
 cursorObject = dataBase.cursor();
 cursor = dataBase.cursor();
 cursor.execute("drop table if exists want");
@@ -452,7 +452,7 @@ submit;
  library(RMariaDB) ;
  library(DBI);
  library(dplyr);
- conn <- DBI::dbConnect(drv=RMariaDB::MariaDB(), user="root", password="sas28rlx",
+ conn <- DBI::dbConnect(drv=RMariaDB::MariaDB(), user="root", password="xxxxxxxx",
     host="localhost", port=3306, dbname="sakila");
  dbExecute(conn, "drop table if exists want");
  want <- dbSendQuery(conn,
